@@ -224,6 +224,12 @@ class RedisExecutor(TCPExecutor):
                     f"pytest-redis sets {name!r} itself, "
                     f"so it can't be passed in options: {option!r}"
                 )
+            if name.lower() == "include":
+                # the included file is read too, and can set port, dir or requirepass
+                raise RedisMisconfigured(
+                    f"'include' loads a file that can change what pytest-redis sets, "
+                    f"so it can't be passed in options: {option!r}"
+                )
             if setting := set_by_setting.get(name.lower()):
                 raise RedisMisconfigured(
                     f"Set {name!r} with the {setting!r} setting, not in options: {option!r}"

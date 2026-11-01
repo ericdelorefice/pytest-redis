@@ -313,6 +313,7 @@ def test_redis_exec_options_with_several_values() -> None:
     (
         ("port 6390", {}),
         ("dir /tmp", {}),
+        ("include /tmp/extra.conf", {}),
         ("requirepass secret", {}),
         ("PORT 6390", {}),
         ("maxmemory 100mb --port 6390", {}),

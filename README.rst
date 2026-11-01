@@ -363,8 +363,9 @@ so quote a value that has spaces or backslashes in it. An entry for an option py
 itself raises ``RedisMisconfigured``: ``bind``, ``port``, ``dir``, ``daemonize``, ``pidfile``,
 ``logfile``, ``loglevel``, ``syslog-enabled``, ``unixsocket``, ``dbfilename``, ``databases``,
 ``timeout``, ``appendonly``, ``rdbcompression``, ``rdbchecksum`` and ``requirepass`` (use
-``password``), plus ``save`` and ``loadmodule`` when ``save`` or ``modules`` is set. So does a
-name that isn't a plain option name, such as one in quotes with a space in it.
+``password``), plus ``save`` and ``loadmodule`` when ``save`` or ``modules`` is set. So does
+``include``, since the file it loads can set any of those, and a name that isn't a plain option
+name, such as one in quotes with a space in it.
 
 .. code-block:: python
 
